@@ -1,11 +1,11 @@
-import { ship } from "../src/ship";
+import { Ship } from "../src/ship";
 describe("ship class",()=>{
     test("ship sinks",()=>{
-        let ship = new ship(3)
-        ship.hit();
-        ship.hit();
-        ship.hit();
-        let result = ship.isSunk();
+        let ship = new Ship(3,0,false)
+        ship.registerHit();
+        ship.registerHit();
+        ship.registerHit();
+        let result = ship.hasItSunk();
         expect(result).toBeTruthy();
 
     })
