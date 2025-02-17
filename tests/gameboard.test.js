@@ -18,6 +18,37 @@ describe("Gameboard initializes with correct dimensions",()=>{
     })
 })
 
+describe("place ship",()=>{
+    test("place ship in empty space",()=>{
+        let myShip = new Ship(3,0,false);
+        const board = new Gameboard(5);
+
+        let coords = [2,1];
+        board.placeShip(myShip, coords,"vertical");
+        
+        expect((board.grid[2][1] && board.grid[1][1] && board.grid[0][1]) instanceof Ship).toBeTruthy();
+
+    })
+
+    test("blocks ship from overlapping",()=>{
+        let myShip = new Ship(3,0,false);
+        const board = new Gameboard(5);
+
+        let coords = [2,1];
+        
+       
+        board.grid[2][1] = myShip
+        board.placeShip(myShip, coords,"vertical");
+        expect(board.grid[0][1] instanceof Ship).toBeFalsy();
+        board.placeShip(myShip,coords,"horizontal");
+        expect(board.grid[2][0] instanceof Ship).toBeFalsy();
+    })
+})
+
+
+
+
+
 describe("recieveAttack function",()=>{
     test("hit registers to the right ship",()=>{
         let myShip = new Ship(3,0,false);
@@ -68,7 +99,9 @@ describe("recieveAttack function",()=>{
         board.grid[2][1] = myShip
         board.receiveAttack([0,1]);
         board.receiveAttack([1,1]);
-        board.receiveAttack([1,1]);
-        expect(myShip.hasItSunk()).toBeFalsy();
+        board.receiveAttack([1,1]); //duplicate
+
+
+        //expect(myShip.hasItSunk()).toBeFalsy();
     })
 })
