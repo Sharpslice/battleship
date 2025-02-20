@@ -3,10 +3,16 @@ import "./gameboard-ui.css"
 console.log("webpack is working!")
 import { Gameboard } from "./gameboard"
 import { buildGameBoard } from "./gameboard-ui"
+import {Player} from "./player"
 function main(){
-    const gameboard = new Gameboard(10)
+    const gameboardHuman = new Gameboard(10)
+    const gameboardComputer = new Gameboard(10)
+    const human = new Player(gameboardHuman,Player.HUMAN);
+    const computer = new Player(gameboardComputer,Player.AI);
 
-    buildGameBoard(gameboard.size);
+    
+
+    buildGameBoard(human.gameboard.size);
 
 }
 

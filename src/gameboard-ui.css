@@ -8,8 +8,6 @@
     grid-template-columns: repeat(10,1fr);
     grid-template-rows: repeat(10,1fr);
 
-
-
     height: 50%;
     width: 50%;
     background-color: red;
