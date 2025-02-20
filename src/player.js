@@ -4,7 +4,8 @@ const player ={
 }
 
 class Player{
-    constructor(gameboard){
+    constructor(gameboard,type){
         this.gameboard = gameboard;
+        this.type = type
     }
 }

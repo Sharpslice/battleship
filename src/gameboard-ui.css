@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#gameboard{
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: repeat(10,1fr);
+
+
+
+    height: 50%;
+    width: 50%;
+    background-color: red;
+    aspect-ratio: 1 / 1;
+
+    
+}
+
+.board-square{
+    height: 100%;
+    width: 100%;
+    border: 2px solid black;
+    background-color: blue;
+}
