@@ -22,8 +22,7 @@ export class GameboardUi{
                 
                
 
-                
-
+    
                 if(this.gameboard.placedCoords.some(([row,col])=> row === i && col === j)){
                     squareDiv.style.backgroundColor ="green"
                 }
@@ -37,8 +36,17 @@ export class GameboardUi{
         }
     }
     handleClick(event,squareDiv,coords){
+        const [i,j] = coords
+        if(this.gameboard.missedCoords.some(([row,col])=> row === i && col === j)
+        )
+        {
+            console.log("already hit")
+            return;
+        }
         squareDiv.style.backgroundColor="red"
         this.gameboard.receiveAttack(coords);
+        
+        
         
     }
     
