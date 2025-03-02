@@ -1,4 +1,5 @@
 import { Ship } from "./ship";
+
 export class Gameboard{
     constructor(size){
         this.size = size;
@@ -45,6 +46,7 @@ export class Gameboard{
                     if(direction == "horizontal"){
                         this.grid[row][col-i]= ship;
                         this.placedCoords.push([row,col-i])
+                        console.log(`placed ship at (${row},${col})`)
                     }   
                     
                 }
