@@ -4,6 +4,7 @@ export class Gameboard{
         this.size = size;
         this.grid = new Array(size).fill(null).map(()=> new Array(size).fill(null))
         this.missedCoords = [];
+        this.placedCoords =[];
     };
    
     canPlaceShip(ship, coordinates,direction){
@@ -14,12 +15,13 @@ export class Gameboard{
                 {
                     
                     if(row-i <0  || this.grid[row-i][col] instanceof Ship ){
-                        
+                        console.log("cannot place ship")
                         return false;
                     }
                 }
                 else if(direction = "horizontal"){
                     if(col-i <0  || this.grid[row][col-i] instanceof Ship ){
+                        console.log("cannot place ship")
                         return false;
                     }
                 }
@@ -37,9 +39,12 @@ export class Gameboard{
                 for(let i=0;i<ship.length;i++){
                     if(direction == "vertical"){
                         this.grid[row-i][col]= ship;
+                        this.placedCoords.push([row-i,col])
+                        console.log(`placed ship at (${row},${col})`)
                     }   
                     if(direction == "horizontal"){
                         this.grid[row][col-i]= ship;
+                        this.placedCoords.push([row,col-i])
                     }   
                     
                 }
