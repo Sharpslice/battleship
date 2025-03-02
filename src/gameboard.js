@@ -5,9 +5,7 @@ export class Gameboard{
         this.grid = new Array(size).fill(null).map(()=> new Array(size).fill(null))
         this.missedCoords = [];
     };
-    createBoard(){
-
-    }
+   
     canPlaceShip(ship, coordinates,direction){
         const [row,col] = coordinates;
             
@@ -67,7 +65,3 @@ export class Gameboard{
 
 }
 
-function create2dArray(size){
-   
-    return array
-}

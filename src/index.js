@@ -2,17 +2,19 @@ import "./styles.css"
 import "./gameboard-ui.css"
 console.log("webpack is working!")
 import { Gameboard } from "./gameboard"
-import { buildGameBoard } from "./gameboard-ui"
+import { GameboardUi } from "./gameboard-ui"
 import {Player} from "./player"
 function main(){
-    const gameboardHuman = new Gameboard(10)
-    const gameboardComputer = new Gameboard(10)
-    const human = new Player(gameboardHuman,Player.HUMAN);
-    const computer = new Player(gameboardComputer,Player.AI);
-
     
+    const human = new Player(new Gameboard(10),Player.HUMAN);
+    const computer = new Player(new Gameboard(10),Player.AI);
 
-    buildGameBoard(human.gameboard.size);
+    const player1Ui = new GameboardUi(human.gameboard);
+    const player2Ui = new GameboardUi(computer.gameboard);
+
+    player1Ui.renderBoard();
+
+   
 
 }
 
