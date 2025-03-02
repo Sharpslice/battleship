@@ -61,11 +61,13 @@ export class Gameboard{
         if(this.grid[xCoord][yCoord] instanceof Ship){
             let ship = this.grid[xCoord][yCoord];
             ship.registerHit();
+            console.log("hit")
             return true;
         }
         else{
             this.grid[xCoord][yCoord] = false;
             this.missedCoords.push([xCoord,yCoord]);
+            console.log("miss")
             return false;
         }
     }

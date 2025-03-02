@@ -22,12 +22,13 @@ export class GameboardUi{
                 
                
 
-                console.log(this.gameboard.placedCoords)
+                
 
                 if(this.gameboard.placedCoords.some(([row,col])=> row === i && col === j)){
                     squareDiv.style.backgroundColor ="green"
                 }
-                squareDiv.addEventListener("click",(event)=> this.handleClick(event,squareDiv));
+                let coords = [i,j]
+                squareDiv.addEventListener("click",(event)=> this.handleClick(event,squareDiv,coords));
 
                 mainContainer.append(squareDiv);
             }
@@ -35,8 +36,9 @@ export class GameboardUi{
 
         }
     }
-    handleClick(event,squareDiv){
+    handleClick(event,squareDiv,coords){
         squareDiv.style.backgroundColor="red"
+        this.gameboard.receiveAttack(coords);
         
     }
     
