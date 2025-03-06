@@ -14,10 +14,12 @@ function main(){
     const player2Ui = new GameboardUi(computer.gameboard);
     
     const testShip = new Ship(4,false);
+    
     human.gameboard.placeShip(testShip,[4,4],"vertical");
     human.gameboard.placeShip(testShip,[8,4],"horizontal");
 
-
+    computer.gameboard.placeShip(testShip,[9,1],"vertical");
+    computer.gameboard.placeShip(testShip,[4,4],"horizontal")
     player1Ui.renderBoard();
     player2Ui.renderBoard();
    
