@@ -20,7 +20,7 @@ describe("Gameboard initializes with correct dimensions",()=>{
 
 describe("place ship",()=>{
     test("place ship in empty space",()=>{
-        let myShip = new Ship(3,0,false);
+        let myShip = new Ship(3,false);
         const board = new Gameboard(5);
 
         let coords = [2,1];
@@ -31,7 +31,7 @@ describe("place ship",()=>{
     })
 
     test("blocks ship from overlapping",()=>{
-        let myShip = new Ship(3,0,false);
+        let myShip = new Ship(3,false);
         const board = new Gameboard(5);
 
         let coords = [2,1];
@@ -51,7 +51,7 @@ describe("place ship",()=>{
 
 describe("recieveAttack function",()=>{
     test("hit registers to the right ship",()=>{
-        let myShip = new Ship(3,0,false);
+        let myShip = new Ship(3,false);
 
         let coords = [0,1];
         const board = new Gameboard(3);
@@ -65,7 +65,7 @@ describe("recieveAttack function",()=>{
         expect(board.grid[xCoord][yCoord].hit).toBe(1)
     })
     test("hit misses",()=>{
-        let myShip = new Ship(3,0,false);
+        let myShip = new Ship(3,false);
 
         let coords = [0,0];
         const board = new Gameboard(3);
@@ -77,7 +77,7 @@ describe("recieveAttack function",()=>{
         expect(board.receiveAttack(coords)).toBeFalsy();
     })
     test("ship has sank",()=>{
-        let myShip = new Ship(3,0,false);
+        let myShip = new Ship(3,false);
 
         let coords = [0,0];
         const board = new Gameboard(3);
@@ -90,7 +90,7 @@ describe("recieveAttack function",()=>{
         expect(myShip.hasItSunk()).toBeTruthy();
     })
     test("ship has sank (duplicate hit)",()=>{
-        let myShip = new Ship(3,0,false);
+        let myShip = new Ship(3,false);
 
         let coords = [0,0];
         const board = new Gameboard(3);

@@ -1,13 +1,13 @@
 import { Ship } from "./ship";
+
 export class Gameboard{
     constructor(size){
         this.size = size;
         this.grid = new Array(size).fill(null).map(()=> new Array(size).fill(null))
         this.missedCoords = [];
+        this.placedCoords =[];
     };
-    createBoard(){
-
-    }
+   
     canPlaceShip(ship, coordinates,direction){
         const [row,col] = coordinates;
             
@@ -16,12 +16,13 @@ export class Gameboard{
                 {
                     
                     if(row-i <0  || this.grid[row-i][col] instanceof Ship ){
-                        
+                        console.log("cannot place ship")
                         return false;
                     }
                 }
                 else if(direction = "horizontal"){
                     if(col-i <0  || this.grid[row][col-i] instanceof Ship ){
+                        console.log("cannot place ship")
                         return false;
                     }
                 }
@@ -39,9 +40,13 @@ export class Gameboard{
                 for(let i=0;i<ship.length;i++){
                     if(direction == "vertical"){
                         this.grid[row-i][col]= ship;
+                        this.placedCoords.push([row-i,col])
+                        console.log(`placed ship at (${row},${col})`)
                     }   
                     if(direction == "horizontal"){
                         this.grid[row][col-i]= ship;
+                        this.placedCoords.push([row,col-i])
+                        console.log(`placed ship at (${row},${col})`)
                     }   
                     
                 }
@@ -56,18 +61,16 @@ export class Gameboard{
         if(this.grid[xCoord][yCoord] instanceof Ship){
             let ship = this.grid[xCoord][yCoord];
             ship.registerHit();
+            console.log("hit")
             return true;
         }
         else{
             this.grid[xCoord][yCoord] = false;
             this.missedCoords.push([xCoord,yCoord]);
+            console.log("miss")
             return false;
         }
     }
 
 }
 
-function create2dArray(size){
-   
-    return array
-}
