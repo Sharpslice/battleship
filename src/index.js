@@ -19,7 +19,7 @@ function main(){
 
 
     player1Ui.renderBoard();
-
+    player2Ui.renderBoard();
    
 
 }
