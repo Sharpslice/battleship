@@ -61,6 +61,9 @@ export class Gameboard{
         if(this.grid[xCoord][yCoord] instanceof Ship){
             let ship = this.grid[xCoord][yCoord];
             ship.registerHit();
+            if(ship.hasItSunk()){
+                console.log("ship has sunk")
+            }
             console.log("hit")
             return true;
         }
@@ -71,6 +74,7 @@ export class Gameboard{
             return false;
         }
     }
+    
 
 }
 
