@@ -15,6 +15,8 @@ function main(){
     
     const testShip = new Ship(4,false);
     
+
+    
     human.gameboard.placeShip(testShip,[4,4],"vertical");
     human.gameboard.placeShip(testShip,[8,4],"horizontal");
 
