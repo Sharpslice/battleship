@@ -25,6 +25,10 @@
     
 }
 
+.locked {
+    pointer-events: none;
+}
+
 .board-square{
     width: 40px;
     aspect-ratio: 1/1;

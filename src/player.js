@@ -1,4 +1,4 @@
-const player ={
+export const player ={
     HUMAN: "human",
     AI: "ai"
 }

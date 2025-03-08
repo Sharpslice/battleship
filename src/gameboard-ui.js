@@ -1,8 +1,9 @@
 
 export class GameboardUi{
-    constructor(gameboard){
+    constructor(gameboard,controller){
         this.gameboard = gameboard
         this.size = gameboard.size;
+        this.controller = controller;
     }
     renderBoard(){
         const mainContainer = document.getElementById("gameboard");
@@ -10,7 +11,7 @@ export class GameboardUi{
             console.error("main div not found!")
         }
         const board = document.createElement("div");
-        board.className ="board"
+        board.classList.add("board")
         for(let i =0; i < this.size;i++)
         {
             for(let j = 0; j< this.size;j++)
@@ -42,8 +43,9 @@ export class GameboardUi{
     handleClick(squareDiv,coords){
        
         squareDiv.style.backgroundColor="red"
-        this.gameboard.receiveAttack(coords);
-        
+        //this.gameboard.receiveAttack(coords);
+        const [x,y] = coords
+        this.controller.playTurn(x,y);
     }
     
 }
